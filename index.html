@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Game of Thrones Transcript Explorer</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-cloud/1.2.5/d3.layout.cloud.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Game of Thrones: Interactive Transcript Analysis</h1>
+  </header>
+
+  <div style="text-align:center; background:#1a1a1a; padding:1rem;">
+    <h2 style="font-size:2.5rem; color:gold; margin:0;">Welcome to Westeros</h2>
+    <p style="color:#ccc;">Explore who says what, when, and with whom</p>
+    <button onclick="toggleHelp()" style="margin-top:1rem; padding:0.5rem 1rem;">📘 Show/Hide Instructions</button>
+  </div>
+
+  <section id="help-section" style="display:none; background:#222; color:#ddd; padding:1rem 2rem;">
+    <h3>How to Use This Site</h3>
+    <ul>
+      <li><strong>Level 1:</strong> Character line counts by season</li>
+      <li><strong>Level 2:</strong> Word cloud for each character</li>
+      <li><strong>Level 3:</strong> Who talks to whom (static grid)</li>
+      <li><strong>Level 4:</strong> Search quotes across all seasons</li>
+    </ul>
+  </section>
+
+  <nav>
+    <button onclick="loadLevel(1)">🔥  Character Importance</button>
+    <button onclick="loadLevel(2)">🧠  What They Say</button>
+    <button onclick="loadLevel(3)">🧩  Who Talks With Whom</button>
+    <button onclick="loadLevel(4)">🔍  Advanced Insights</button>
+  </nav>
+
+  <div id="status-bar">Viewing: Home</div>
+  <section id="controls"></section>
+  <main id="visualization">
+    <div id="default-prompt">
+      <h2 style="text-align:center; color:gold; font-size:3rem; margin-top:5rem;">Game of Thrones</h2>
+      <p style="text-align:center; color:#ccc;">Select a level to begin exploring the transcript data</p>
+    </div>
+  </main>
+  <div id="tooltip"></div>
+  <footer><p>Built by group 11 | Data © HBO</p></footer>
+
+  <script>
+    function toggleHelp() {
+      const section = document.getElementById("help-section");
+      section.style.display = section.style.display === "none" ? "block" : "none";
+    }
+  </script>
+  <script src="js/main.js"></script>
+</body>
+</html>
